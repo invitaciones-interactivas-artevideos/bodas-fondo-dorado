@@ -697,6 +697,8 @@ margin-left: -28.125vh;
 Eventos
 </h2>
 
+<div id="ceremonyModule">
+
 <h3>⛪ Ceremonia</h3>
 
 <p id="ceremonyDate"></p>
@@ -712,8 +714,13 @@ target="_blank"
 rel="noopener">
 Ver ubicación
 </a>
+ </div>
 
-<br><br>
+<div id="eventSeparator">
+    <br><br>
+</div>
+
+<div id="partyModule">
 
 <h3>🎉 Fiesta</h3>
 
@@ -730,10 +737,9 @@ target="_blank"
 rel="noopener">
 Ver ubicación
 </a>
-
+      
 </div>
-
-    
+    </div>
      <div class="box">
       <h2><i class="fa-solid fa-wand-magic-sparkles animated-icon"></i> Dress code</h2>
       <p id="dressCodeText"></p>
@@ -891,6 +897,8 @@ const CONFIG = {
   },
 
  mostrarRegalo: true,
+  mostrarCeremonia: true,
+mostrarFiesta: true,
 mostrarPlaylist: true,
 mostrarAlbumFotos: true,
   playlistTipo: "google", 
@@ -1463,15 +1471,7 @@ function cargarDatos() {
   document.getElementById("name").innerText = CONFIG.nombre;
   document.getElementById("dateText").innerText = CONFIG.fechaTexto;
 
-document.getElementById("ceremonyTime").innerText = CONFIG.ceremonyTime;
-document.getElementById("ceremonyVenue").innerText = CONFIG.ceremonyVenue;
-document.getElementById("ceremonyAddress").innerText = CONFIG.ceremonyAddress;
-document.getElementById("ceremonyMap").href = CONFIG.ceremonyMap;
-
-document.getElementById("partyTime").innerText = CONFIG.partyTime;
-document.getElementById("partyVenue").innerText = CONFIG.partyVenue;
-document.getElementById("partyAddress").innerText = CONFIG.partyAddress;
-document.getElementById("partyMap").href = CONFIG.partyMap;
+document.getElementById("partyDate").innerText = CONFIG.partyDate;
 document.getElementById("dressCodeText").innerHTML = CONFIG.dressCode;
 
   document.getElementById("confirmLink").href = CONFIG.formularioAsistencia;
@@ -1485,6 +1485,12 @@ function configurarExtras() {
   giftModule.hidden = !CONFIG.mostrarRegalo;
 playlistModule.hidden = !CONFIG.mostrarPlaylist;
 albumFotosModule.hidden = !CONFIG.mostrarAlbumFotos;
+  document.getElementById("ceremonyModule").hidden = !CONFIG.mostrarCeremonia;
+document.getElementById("partyModule").hidden = !CONFIG.mostrarFiesta;
+  const separator = document.getElementById("eventSeparator");
+
+separator.hidden =
+    !CONFIG.mostrarCeremonia || !CONFIG.mostrarFiesta;
 
   if (CONFIG.mostrarRegalo) {
     document.getElementById("giftTitular").innerText = CONFIG.regalo.titular;
