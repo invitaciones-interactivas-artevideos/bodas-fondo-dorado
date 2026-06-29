@@ -622,6 +622,20 @@ margin-left: -28.125vh;
     gap: 2px;
     text-align: center;
   }
+  .detalle-evento h3{
+    margin-top:20px;
+    margin-bottom:8px;
+    font-size:1.35rem;
+    color:var(--color-titulo);
+}
+
+.detalle-evento .button{
+    margin-top:15px;
+}
+
+.detalle-evento p{
+    margin:3px 0;
+}
 }
 </style>
 </head>
@@ -677,25 +691,45 @@ margin-left: -28.125vh;
     </div>
 
     <div class="box detalle-evento">
-      <h2><i class="fa-regular fa-calendar animated-icon"></i> Fecha y lugar</h2>
-      <p id="dateText"></p>
-      <p id="timeText"></p>
-      <p id="venueText"></p>
-      <p id="addressText"></p>
-    </div>
 
-    <div class="box">
-  <h2><i class="fa-solid fa-location-dot animated-icon"></i> Mira cómo llegar</h2>
+<h2>
+<i class="fa-regular fa-calendar animated-icon"></i>
+Fecha y lugar
+</h2>
 
-  <p class="box-texto">
-    Tocá y conocé el lugar.
-  </p>
+<p id="dateText"></p>
 
-  <a id="mapLink" class="button" href="#" target="_blank" rel="noopener">
-    Ver mapa
-  </a>
+<br>
+
+<h3>Ceremonia</h3>
+
+<p id="ceremonyTime"></p>
+<p id="ceremonyVenue"></p>
+<p id="ceremonyAddress"></p>
+
+<a id="ceremonyMap"
+class="button"
+target="_blank">
+Ver ubicación
+</a>
+
+<br><br>
+
+<h3>Fiesta</h3>
+
+<p id="partyTime"></p>
+<p id="partyVenue"></p>
+<p id="partyAddress"></p>
+
+<a id="partyMap"
+class="button"
+target="_blank">
+Ver ubicación
+</a>
+
 </div>
 
+    
      <div class="box">
       <h2><i class="fa-solid fa-wand-magic-sparkles animated-icon"></i> Dress code</h2>
       <p id="dressCodeText"></p>
@@ -862,10 +896,23 @@ whatsappPlaylist: "123456789",
   nombre: "Julieta",
   fechaEvento: "2026-10-17T20:00:00",
   fechaTexto: "El sábado 17 de octubre",
-  horaTexto: "A partir de las 20:00 horas",
-  salon: "En Salón Aurora Palace",
-  direccion: "Avenida Las Flores 2020",
-  mapa: "https://maps.app.goo.gl/cKfbAR5rutndHhUD8",
+  fechaTexto: "Sábado 17 de octubre",
+
+ceremonyTime: "17:30 hs",
+
+ceremonyVenue: "Parroquia San José",
+
+ceremonyAddress: "Av. Principal 123",
+
+ceremonyMap: "https://maps....",
+
+partyTime: "20:30 hs",
+
+partyVenue: "Salón Aurora Palace",
+
+partyAddress: "Av. Las Flores 2020",
+
+partyMap: "https://maps....",
   dressCode: "Semi-formal<br>Reservamos el color blanco<br>para mi vestimenta",
   formularioAsistencia: "https://docs.google.com/forms/d/e/1FAIpQLScZhjYcfePL1Ylu4gyruySPntMRvHBywHx09yzgDPboeVvNSQ/viewform?usp=sharing&ouid=108226770807790576500",
   albumFotosLink: "https://docs.google.com/forms/d/e/1FAIpQLScmQNGoapK8xgvTQfr6dpjUac8bcL_V44ABJwGHziPkILef2A/viewform?usp=sharing&ouid=108226770807790576500",
@@ -1411,10 +1458,16 @@ function aplicarFuentes() {
 function cargarDatos() {
   document.getElementById("name").innerText = CONFIG.nombre;
   document.getElementById("dateText").innerText = CONFIG.fechaTexto;
-  document.getElementById("timeText").innerText = CONFIG.horaTexto;
-  document.getElementById("venueText").innerText = CONFIG.salon;
-  document.getElementById("addressText").innerText = CONFIG.direccion;
-  document.getElementById("mapLink").href = CONFIG.mapa;
+
+document.getElementById("ceremonyTime").innerText = CONFIG.ceremonyTime;
+document.getElementById("ceremonyVenue").innerText = CONFIG.ceremonyVenue;
+document.getElementById("ceremonyAddress").innerText = CONFIG.ceremonyAddress;
+document.getElementById("ceremonyMap").href = CONFIG.ceremonyMap;
+
+document.getElementById("partyTime").innerText = CONFIG.partyTime;
+document.getElementById("partyVenue").innerText = CONFIG.partyVenue;
+document.getElementById("partyAddress").innerText = CONFIG.partyAddress;
+document.getElementById("partyMap").href = CONFIG.partyMap;
 document.getElementById("dressCodeText").innerHTML = CONFIG.dressCode;
 
   document.getElementById("confirmLink").href = CONFIG.formularioAsistencia;
