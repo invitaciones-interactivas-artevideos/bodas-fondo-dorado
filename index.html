@@ -907,16 +907,18 @@ spotifyLink: "https://open.spotify.com/playlist/XXXXXXXX",
 whatsappPlaylist: "123456789",
   nombre: "Ana Laura Y Martín",
   fechaEvento: "2026-10-17T20:00:00",
-  fechaTexto: "El sábado 17 de octubre",
-  fechaTexto: "Sábado 17 de octubre",
+ 
 
-ceremonyTime: "17:30 hs",
+  ceremonyDate:"sábado 17 de octubre"
+  ceremonyTime: "17:30 hs",
 
 ceremonyVenue: "Parroquia San José",
 
 ceremonyAddress: "Av. Misiones 3232, Montevideo",
 
 ceremonyMap: "https://maps....",
+ 
+partyDate: "Sábado 17 de octubre",
 
 partyTime: "20:30 hs",
 
@@ -1469,12 +1471,19 @@ function aplicarFuentes() {
 
 function cargarDatos() {
   document.getElementById("name").innerText = CONFIG.nombre;
-  document.getElementById("dateText").innerText = CONFIG.fechaTexto;
+document.getElementById("ceremonyDate").innerText = CONFIG.ceremonyDate;
+document.getElementById("ceremonyTime").innerText = CONFIG.ceremonyTime;
+document.getElementById("ceremonyVenue").innerText = CONFIG.ceremonyVenue;
+document.getElementById("ceremonyAddress").innerText = CONFIG.ceremonyAddress;
+document.getElementById("ceremonyMap").href = CONFIG.ceremonyMap;
 
 document.getElementById("partyDate").innerText = CONFIG.partyDate;
+document.getElementById("partyTime").innerText = CONFIG.partyTime;
+document.getElementById("partyVenue").innerText = CONFIG.partyVenue;
+document.getElementById("partyAddress").innerText = CONFIG.partyAddress;
+document.getElementById("partyMap").href = CONFIG.partyMap;
 document.getElementById("dressCodeText").innerHTML = CONFIG.dressCode;
-
-  document.getElementById("confirmLink").href = CONFIG.formularioAsistencia;
+document.getElementById("confirmLink").href = CONFIG.formularioAsistencia;
 }
 
 function configurarExtras() {
